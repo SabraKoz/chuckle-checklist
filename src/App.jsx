@@ -10,14 +10,14 @@ export const App = () => {
   const [toldJokes, setToldJokes] = useState([])
   const [untoldJokes, setUntoldJokes] = useState([])
 
-  const updateDatabase = () => {
+  const getAllJokes = () => {
     getJokes().then((jokeArr) => {
       setAllJokes(jokeArr)
     })
   }
 
   useEffect(() => {
-    updateDatabase()
+    getAllJokes()
   }, [])
 
   const handleAddJoke = () => {
@@ -31,7 +31,7 @@ export const App = () => {
 
       addJoke(jokeToSave).then(() => {
         setNewJoke("")
-        updateDatabase()
+        getAllJokes()
       })
     }
   }
